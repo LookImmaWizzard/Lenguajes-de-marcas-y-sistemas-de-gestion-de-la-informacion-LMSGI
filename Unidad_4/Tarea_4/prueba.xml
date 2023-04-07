@@ -1,0 +1,24 @@
+<revistas xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="prueba.xsd">
+<revista codigo="0954651235">
+    <nombre>
+    El XML libre
+    </nombre>
+    <fechadesalida>18-06-2002</fechadesalida>
+    <artículo>
+    <título>Los esquemas XML</título>
+    <autor> Sébastien L. </autor>
+    <númerodepalabras>500</númerodepalabras>
+    <texto>Contenido del artículo
+    </texto>
+    </artículo>
+    <artículo>
+    <título>XML y DTD</título>
+    <autor> Yasmine S. </autor>
+    <autor> Lourdin H. </autor>
+    <númerodepalabras>260</númerodepalabras>
+    <texto>
+    Contenido del artículo
+    </texto>
+    </artículo>
+    </revista>
+</revistas>

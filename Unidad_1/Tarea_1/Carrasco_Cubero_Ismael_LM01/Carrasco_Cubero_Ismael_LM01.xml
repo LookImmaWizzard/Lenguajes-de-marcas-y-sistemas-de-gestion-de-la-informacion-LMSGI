@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<!DOCTYPE Repartos>
+<!-- He consignado standalone=yes puesto que el documento es autonomo al no poseer DTD -->
+<!-- Tambien he considerado el tipo de documento como "Repartos" pues a mi juicio es el elemento principal del que se pretende hacer un seguimiento -->
+<Repartos>
+    
+    <repartidor>
+        <Nombre_y_apellidos>Fernando Marquez Garmendia</Nombre_y_apellidos>
+        <Telefono>632896452</Telefono>
+        <Jornada_laboral>8</Jornada_laboral>
+        <!-- He considerado al repartidor como el elemento principal de los repartos, del que cuelgan el resto de elementos, un repartidor tiene sus propiedades y realiza repartos, y a su vez tiene asignados paquetes y vehiculos -->
+        <Vehiculo>
+            <Modelo>Suzuki Address</Modelo>
+            <Matricula>6259SAS</Matricula>
+            <Capacidad unidad="kg">40</Capacidad>
+            <Kilometros unidad="km">24365</Kilometros>
+        </Vehiculo>
+            
+        <Paquete>
+            <Codigo_paquete>95186456asg948</Codigo_paquete>
+            <n_intento>2</n_intento>
+            <Peso unidad="kg">2</Peso>
+            <Destinatario>Antonio Garcia Mañueco</Destinatario>
+            <NIF>32775669y</NIF>
+            <Telefono>+34632956145</Telefono>
+            <Direccion>Calle Marte, 27 3-1, 14014 Córdoba Córdoba</Direccion>
+            <Indicaciones></Indicaciones>
+            <Observaciones>Cliente ausente</Observaciones>
+            <!-- Tambien he incorporado las unidades kg y km como atributos de las etiquetas "Capacidad" y "Kilometros" respectivamente -->
+        </Paquete>
+    </repartidor>   
+    
+    <repartidor>
+        <Nombre_y_apellidos>Alberto Perez Tamayo</Nombre_y_apellidos>
+        <Telefono>633799442</Telefono>
+        <Jornada_laboral>7</Jornada_laboral>
+            
+        <Vehiculo>
+            <Modelo>Honda PCX</Modelo>
+            <Matricula>6234CIA</Matricula>
+            <Capacidad unidad="kg">45</Capacidad>
+            <Kilometros unidad="km">22915</Kilometros>
+        </Vehiculo>
+
+        <Paquete>
+            <Codigo_paquete>34186492agf242</Codigo_paquete>
+            <n_intento>1</n_intento>
+            <Peso unidad="kg">4</Peso>
+            <Destinatario>Alejandro Ruiz Fonseca</Destinatario>
+            <NIF>24275679t</NIF>
+            <Telefono>+34652657148</Telefono>
+            <Direccion>Calle El almendro, 14 2-2, 14007 Córdoba Córdoba</Direccion>
+            <Indicaciones>Entrega solo Mañanas</Indicaciones>
+            <Observaciones>Bulto Fragil</Observaciones>
+        </Paquete>
+    </repartidor>
+    
+    <repartidor>
+        <Nombre_y_apellidos>Giacomo Caruana Belluci</Nombre_y_apellidos>
+        <Telefono>678894413</Telefono>
+        <Jornada_laboral>8</Jornada_laboral>
+            
+        <Vehiculo>
+            <Modelo>Yamaha Nmax</Modelo>
+            <Matricula>6874KGB</Matricula>
+            <Capacidad unidad="kg">35</Capacidad>
+            <Kilometros unidad="km">19669</Kilometros>
+        </Vehiculo>
+        
+        <Paquete>
+            <Codigo_paquete>28189414trv642</Codigo_paquete>
+            <n_intento>1</n_intento>
+            <Peso unidad="kg">10</Peso>
+            <Destinatario>Pedro Alvarez Matabuena</Destinatario>
+            <NIF>31836678f</NIF>
+            <Telefono>+34678956545</Telefono>
+            <Direccion>Calle Badalona, 11 bajo-2, 14004 Córdoba Córdoba</Direccion>
+            <Indicaciones>Espera en la puerta</Indicaciones>
+            <Observaciones>Zona peligrosa</Observaciones>
+            </Paquete>
+    </repartidor>
+</Repartos>

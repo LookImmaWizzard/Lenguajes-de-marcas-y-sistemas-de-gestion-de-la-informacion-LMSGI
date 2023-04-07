@@ -1,0 +1,240 @@
+/*ISMAEL CARRASCO CUBERO*/
+
+body{
+  margin: 0cm;
+}
+
+#encabezado{
+  background-color: rgb(114, 114, 114);
+  height: 180px;
+}
+
+
+#titulo {
+    color: rgb(0, 0, 0);
+    background-color: rgb(114, 114, 114);
+    font-size: 48px;
+    position: absolute;
+    left: 43%;
+    top: 5%;
+    font-weight: bolder;
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.maintitles{
+  font-weight: bold;
+  font-style: italic;
+}
+
+#navbar{
+  /* Estilos para los enlaces del menú */
+  background-color: rgb(114, 114, 114);
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  text-decoration: none;
+  position: absolute;
+  left: 43%;
+  top: 13%;
+  width: 280px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+  nav a:hover {
+    /* Estilos para los enlaces del menú al pasar el ratón */
+    border-bottom: 2px solid #000;
+    color: rgb(251, 0, 0);
+  }
+  
+  #logoempresa{
+    /* Estilos para el logotipo */
+    width: auto;
+    height: 180px;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    right: 1%;
+    top: 0%;
+  }
+
+  #cuerpo, #Inicio, #Contacto{
+    height: 680px;
+    width: 100%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#Servicios, #productos{
+height: 339px;
+width: auto;
+}
+
+
+#presentacion{
+  text-align: center;
+}
+
+#banner{
+  height: 200px;
+  width: 100%;
+}
+
+#cuerpo{
+    overflow: hidden;
+    background-color: rgb(159, 159, 159);
+
+}
+
+footer{
+ background-color: rgb(114, 114, 114);
+ height: 102px;
+}
+
+#datosempresa{
+  font-size: 10px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#nombreempresa{
+  position: relative;
+  left: 0%;
+}
+
+#direccionempresa{
+  position: relative;
+  left: 2%;
+}
+
+#telefono{
+  position: relative;
+  left: 4%;
+}
+
+#emailempresa{
+  position: relative;
+  left: 6%;
+}
+
+#datosautoria{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#autor{
+  position: relative;
+  left: 12%;
+}
+
+#licencia{
+  position: relative;
+  right: 1%;
+}
+
+#lista{
+list-style-type: decimal;
+}
+
+
+#lichild{
+  list-style-type: lower-alpha;
+}
+
+div img{
+  height: 150px;
+  width: auto;
+}
+
+.grid-container{
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  padding: 10px;
+  
+}
+
+.grid-container2{
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  padding: 10px;
+  
+}
+
+.grid-item{
+  text-align: center;
+}
+
+.animada:hover{
+  animation: rotation 2s infinite linear;
+}
+
+.animada{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.nombre{
+  text-align: center;
+  font-size:20px;
+  font-weight: bold;
+
+}
+
+.descripcion{
+  text-align: center;
+  width: 40%;
+  position: relative;
+  left: 30%;
+  font-size: 12px;
+}
+
+fieldset{
+  width: 38%;
+  height: auto;
+}
+
+.client{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 33%;
+  }
+
+.client #nombre, #correo, #tlf, #direccion{
+  width: 80%;
+  height: auto;
+}
+
+.client #comentarios{
+  width: 80%;
+  height: 200px;
+}
+
+.button{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 18%;
+  height: auto;
+  position: relative;
+  left: 36%;
+  margin-top: 20px;
+}
+
+#feed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 110px;
+}
+
+/* EL CSS MEZCLA IDs CON CLASSES DE UNA MANERA BASTANTE CONFUSA Y REDUNDANTE, AUNQUE CUMPLE SU COMETIDO
+DE DAR ESTILO A LA WEB. CUANDO EMPEZE A COGERLE EL TRUCO A COMO ORGANIZARLO TODO YA ERA UN POCO TARDE, Y LO
+ACABE DEJANDO ASI POR MIEDO A ROMPER TANTO ESFUERZO.
+UNA VEZ MAS, ESPERO QUE AL MENOS ME DE PARA EL 5.
+SALUDOS!!!!!! */

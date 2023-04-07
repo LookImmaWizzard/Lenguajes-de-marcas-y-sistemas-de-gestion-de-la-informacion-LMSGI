@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!-- Documentacion-->
+<xs:annotation>
+    <xs:documentation xml:lang="es-es">
+        <titulo>ejemplo_2</titulo>
+        <fecha_creacion>13-11-22</fecha_creacion>
+        <modulo>LMSGI</modulo>
+        <autor>Ismael Carrasco Cubero</autor>
+    </xs:documentation>
+</xs:annotation>
+
+<!--Definicion de elementos terminales-->
+<xs:element name="identidad" type="xs:string"/>
+<xs:element name="via" type="xs:string"/>
+<xs:element name="fecha" type="xs:date"/>
+<xs:element name="hora" type="xs:time"/>
+<xs:element name="comentario" type="xs:string"/>
+    <!--Los elementos num_contrato, poblacion, provincia y nombre_completo son terminales pero poseen atributos por lo que han de ser complejos, asi que los he definido directamente donde procede-->
+
+<!--Definicion de atributos-->
+<xs:attribute name="cod">
+    <xs:simpleType>
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="(NA|RE|PR|LO)[0-3][0-9]{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:attribute>
+
+<xs:annotation>
+    <xs:documentation>
+        El patron esta definido con una lista de valores delimitada (NA RE PR y LO) introduciendo esos valores entre parentisis separados por el caracter "|", seguido de un valor de 0 a 3 delimitado con 0-3 entre corchetes, seguid de 4 digitos del 0 al 9 indicados como 0-9 entre corchetes e indicando que debe repetirse 4 veces poniendo un 4 entre llaves "{}" a continuacion.
+    </xs:documentation>
+</xs:annotation>
+
+<xs:attribute name="tipo">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="básico"/>
+            <xs:enumeration value="avanzado"/>
+            <xs:enumeration value="completo"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:attribute>
+<xs:attribute name="cp" type="xs:positiveInteger"/>
+<xs:attribute name="pais" fixed="España"/>
+<xs:attribute name="recepcionado" default="no">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(sí|no)"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:attribute>
+<xs:attribute name="id">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{8}[A-Z]"/>
+        </xs:restriction>
+    </xs:simpleType> 
+</xs:attribute>
+
+<!--Esquema-->
+<xs:element name="envios">
+    <xs:complexType>
+        <xs:sequence>
+        
+        <xs:element name="envio">
+            <xs:complexType>
+                <xs:sequence>
+                    
+                    <xs:element name="emisor" minOccurs="1" maxOccurs="1">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element ref="identidad" minOccurs="1" maxOccurs="unbounded"/>
+                                <xs:element name="num_contrato" minOccurs="0" maxOccurs="1">
+                                    <xs:complexType>
+                                        <xs:simpleContent>
+                                            <xs:extension base="xs:positiveInteger">
+                                                <xs:attribute ref="tipo"/>
+                                            </xs:extension>
+                                        </xs:simpleContent>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="ubicacion" minOccurs="1" maxOccurs="unbounded">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="via" minOccurs="1" maxOccurs="1"/>
+                                            <xs:element name="poblacion" minOccurs="1" maxOccurs="1">
+                                                <xs:complexType mixed="true">
+                                                    <xs:attribute ref="cp" use="required"/>
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="provincia" minOccurs="0" maxOccurs="1">
+                                                <xs:complexType mixed="true">
+                                                    <xs:attribute ref="pais" use="required"/>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    
+                    <xs:element name="intento" minOccurs="0"
+                    maxOccurs="unbounded">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element ref="fecha" minOccurs="1" maxOccurs="1"/>
+                                <xs:element ref="hora" minOccurs="0" maxOccurs="1"/>
+                                <xs:element ref="comentario" minOccurs="0" maxOccurs="unbounded"/>
+                            </xs:sequence>
+                            <xs:attribute ref="recepcionado" use="required"/>
+                        </xs:complexType>
+                    </xs:element>
+                    
+                    <xs:element name="receptor" minOccurs="1" maxOccurs="1">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="nombre_completo" minOccurs="1" maxOccurs="1">
+                                    <xs:complexType mixed="true">
+                                        <xs:attribute ref="id"/>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="ubicacion" minOccurs="1" maxOccurs="1">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="via"/>
+                                            <xs:element name="poblacion">
+                                                <xs:complexType mixed="true">
+                                                    <xs:attribute ref="cp"/>
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="provincia">
+                                                <xs:complexType mixed="true">
+                                                    <xs:attribute ref="pais" use="required"/>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                
+                </xs:sequence>
+                <xs:attribute ref="cod" use="required"/>
+            </xs:complexType>
+        </xs:element>
+
+    </xs:sequence>
+</xs:complexType>
+
+</xs:element>    
+</xs:schema>

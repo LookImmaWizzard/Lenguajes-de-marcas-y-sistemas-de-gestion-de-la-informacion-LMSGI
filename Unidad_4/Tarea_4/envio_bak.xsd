@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!-- Documentacion-->
+<xs:annotation>
+    <xs:documentation xml:lang="es-es">
+        <titulo>ejemplo_2</titulo>
+        <fecha_creacion>13-11-22</fecha_creacion>
+        <modulo>LMSGI</modulo>
+        <autor>Ismael Carrasco Cubero</autor>
+    </xs:documentation>
+</xs:annotation>
+
+<!--Definicion de elementos terminales-->
+<xs:element name="identidad" type="xs:string"/>
+<xs:element name="via" type="xs:string"/>
+<xs:element name="poblacion" type="xs:NMTOKEN"/>
+<xs:element name="provincia" type="xs:NMTOKEN"/>
+<xs:element name="fecha" type="xs:date"/>
+<xs:element name="hora" type="xs:time"/>
+<xs:element name="comentario" type="xs:string"/>
+<xs:element name="nombre_completo" type="xs:string"/>
+    <!--Si bien num_contrato es terminal, tiene atributo, por lo que es de tipo complejo y no lo he declarado para referenciarlo y lo he definido directamente donde procede-->
+
+<!--Definicion de atributos-->
+<xs:attribute name="cod" type="xs:ID"/>
+<xs:attribute name="tipo" type="xs:NMTOKEN"/>
+<xs:attribute name="cp" type="xs:positiveInteger"/>
+<xs:attribute name="pais" type="xs:NMTOKEN"/>
+<xs:attribute name="recepcionado" type="xs:NMTOKEN"/>
+<xs:attribute name="id" type="xs:NMTOKEN"/>
+
+<!--Esquema-->
+<xs:element name="envios">
+    <xs:complexType>
+        <xs:sequence>
+        
+        <xs:element name="envio">
+            <xs:complexType>
+                <xs:sequence>
+                    
+                    <xs:element name="emisor">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element ref="identidad"/>
+                                <xs:element name="num_contrato">
+                                    <xs:complexType mixed="true">
+                                        <xs:attribute ref="tipo"/>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="ubicacion">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="via"/>
+                                            <xs:element name="poblacion">
+                                                <xs:complexType mixed="true">
+                                                    <xs:attribute ref="cp"></xs:attribute>
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="provincia">
+                                                <xs:complexType mixed="true">
+                                                    <xs:attribute ref="pais"/>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    
+                    <xs:element name="intento" minOccurs="1"
+                    maxOccurs="unbounded">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element ref="fecha"/>
+                                <xs:element ref="hora"/>
+                                <xs:element ref="comentario"/>
+                            </xs:sequence>
+                            <xs:attribute ref="recepcionado"/>
+                        </xs:complexType>
+                    </xs:element>
+                    
+                    <xs:element name="receptor">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="nombre_completo">
+                                    <xs:complexType mixed="true">
+                                        <xs:attribute ref="id"/>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="ubicacion">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="via"/>
+                                            <xs:element name="poblacion">
+                                                <xs:complexType mixed="true">
+                                                    <xs:attribute ref="cp"/>
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="provincia">
+                                                <xs:complexType mixed="true">
+                                                    <xs:attribute ref="pais"/>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                
+                </xs:sequence>
+                <xs:attribute ref="cod"/>
+            </xs:complexType>
+        </xs:element>
+
+    </xs:sequence>
+</xs:complexType>
+
+</xs:element>    
+</xs:schema>

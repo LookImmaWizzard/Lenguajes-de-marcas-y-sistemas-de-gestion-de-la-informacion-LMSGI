@@ -1,0 +1,187 @@
+<!--ISMAEL CARRASCO CUBERO-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--   Cabezera del documento    -->
+        <title>Llegaya SL</title>
+        <link rel="stylesheet" type="text/css" href="./css/style.css"/>          
+    </head>
+    <!--HE ENCONTRADO ESTE PQUEÑO SCRIPT POR INTERNET, QUE HACE LAS VECES DE CONVERTIR #inicio EN LA PAGINA PRINCIPAL-->
+    <script>
+        $(document).ready(function(){
+           $(window).scrollTop(0);
+       });
+       </script>
+     <body>
+        <!--ENCABEZADO CON LA BARRA DE NAVEGACION-->
+        <header>
+            <div id="encabezado">
+                <titulo id="titulo">LLEGAYA SL</titulo>
+                    <nav id="navbar">
+                        <a id="botoninicio" href="#Inicio">Inicio</a>
+                        <a id="botonservicios" href="#Servicios">Servicios</a>
+                        <a id="botoncontacto" href="#Contacto">Contacto</a>
+                    </nav>
+                    <img id="logoempresa" src="./img/logo.jpg" alt="Logotipo de mi empresa"/>
+                    <!--Image by pch.vector on Freepik-->
+            </div>
+        </header>
+        <!--   Cuerpo del documento    -->
+        <main>
+            <div id="cuerpo">
+                <div id="Inicio">
+                    <h1 class="maintitles">Inicio</h1>
+                    <img id="banner" src="./img/banner.png"/>
+                        <div id="presentacion">
+                            <p>En Llegaya conocemos esa sensacion... acabas de comprar tu flamante nuevo producto, y estas dseando tenerlo en las manos. No paras de asomarte a la ventana cada vez que oyes una camioneta.</p>
+                            <p>En Llegaya estamos aqui para que no tengas que mirar muchas veces. Asi de simple.</p>
+                            <p>Ofrecemos servicios de mensajeria fiables y rapidos para todo tipo de paquetes y bultos.</p>
+                            <p>Y lo mejor de todo... nunca mas un repartidor dira que no estabas en casa mientras tu estas en tu salon y te quedas con cara de tonto ;)</P>
+                        </div>
+                        <div>
+                            <p>
+                                ¿QUE OFRECEMOS?
+                            </p>
+                        </div>
+                        <div>
+                            <ol>
+                                <li id="lista">Servicios</li>
+                                <ol>
+                                    <li id="lichild">Transporte urgente</li>
+                                    <li id="lichild">Transporte ordinario</li>
+                                    <li id="lichild">Transporte internacional</li>
+                                </ol>
+                                <li id="lista">Productos</li>
+                                <ol>
+                                    <li id="lichild">Pquetes</li>
+                                    <li id="lichild">Sobres</li> 
+                                    <li id="lichild">Papel de burbujas</li>       
+                                </ol>
+                            </ol>
+                        </div>
+                </div>
+                <div id="Servicios">
+                    <h1 class="maintitles">Servicios/Productos</h1>
+                    <p>SERVICIOS</p>
+                    <div  class="grid-container">
+                        <div class="grid-item">
+                            <!-- <a href="https://www.freepik.com/free-photo/young-courier-his-colleague-unloading-cardboard-boxes-from-delivery-van_25630693.htm#query=transport&position=3&from_view=search&track=sph">Image by Drazen Zigic</a> on Freepik -->
+                            <img src="./img/ordinario_peninsular.jpg" class="animada"/>
+                            <p class="nombre">Transporte ordinario peninsular</p>
+                            <p class="descripcion">Entrega en menos de 10 dias habiles en peninsula y Baleares</p>
+                        </div>
+                        <div class="grid-item">
+                            <!-- <a href="https://www.freepik.com/free-photo/traffic-highway_1119447.htm#query=transport&position=5&from_view=search&track=sph">Image by fanjianhua</a> on Freepik -->
+                            <img src="./img/urgente_peninsular.jpg" class="animada"/>
+                            <p class="nombre">Transporte urgente peninsular</p>
+                            <p class="descripcion">Entrega en 24/48h en peninsula y baleares. (Sabado y Domingo incluidos)</p>
+                        </div>
+                        <div class="grid-item">
+                            <!-- -->
+                            <img src="./img/internacional.jpeg" class="animada"/>
+                            <p class="nombre">Transporte internacional</p>
+                            <p class="descripcion">Transporte de bultos al territorio de Europa y EEUU (Consultar disponibilidad)</p>
+                        </div>
+                    </div>
+                </div>                   
+                <div id="productos">
+                    <p>PRODUCTOS</p>
+                    <div class="grid-container2">
+                        <div class="grid-item">
+                            <!-- <a href="https://www.freepik.com/free-vector/envelope-mockup_1014954.htm#query=sobre&position=12&from_view=search&track=sph">Image by starline</a> on Freepik -->
+                            <img src="./img/sobres.jpg" class="animada"/>
+                            <p class="nombre">Sobres</p>
+                            <p class="descripcion">Sobres para pequeños bultos en multiples tamaños</p>
+                        </div>
+                        <div class="grid-item">
+                            <!--  -->
+                            <img src="./img/cajas.jpg" class="animada"/>
+                            <p class="nombre">Cajas de carton</p>
+                            <p class="descripcion">Cajas en multitud de tamaños para transportar tus bultos de forma segura</p>
+                        </div>
+                        <div class="grid-item">
+                            <!-- -->
+                            <img src="./img/burbujas.jpg" class="animada"/>
+                            <p  class="nombre">Papel de burbujas</p>
+                            <p class="descripcion">Protege tu preciada carga con papel de burbujas de alta calidad (o dedicate a explotarlo... sabemos que quieres hacerlo, y tu tambien ;) )</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            <form>           
+                <div id="Contacto">
+                    <h1 class="maintitles">Formulario de contacto</h1>
+                    <div>
+                        <section>
+                            <fieldset class="client">
+                                <legend>Datos cliente</legend>
+                                <label for="nombre"> Nombre:</label>
+                                <input type="text" name="nombre" id="nombre" size="30" maxlength="35" accesskey="n" />
+
+                                <label for="email">Email:</label>
+                                <input type="email" name="correo" id="correo" size="30" maxlength="100" required />    
+    
+                                <label for="tlf">Telefono:</label>
+                                <input type="tel" name="tlf" size="15" maxlength="9" required placeholder="#########"
+                                    pattern="[0-9]{9}" id="tlf" />
+    
+                                <label for="direccion">Dirección:</label>
+                                <input type="text" name="direccion" id="direccion" size="30" maxlength="35" />
+                                    
+                                <label for="comentarios"> Comentarios:</label>
+                                <input type="text" name="comentarios" id="comentarios" size="200" maxlength="200" accesskey="n" />
+    
+                            </fieldset>
+                            <fieldset class="client">
+                                <legend>Opciones de respuesta</legend>
+                                <label>¿Como desea que le contactemos?</label>
+                                <label for="respemail">
+                                    <input type="radio" name="entrega" value="e">Email
+                                </label>
+                                <label for="resptlf">
+                                    <input type="radio" name="entrega" value="t">Telefono
+                                </label>
+                            </fieldset>
+                            <div class="button">
+                                <input class="button" type="submit" id="enviar" value="Enviar" />
+                                <input class="button" type="reset" id="limpiar" value="Limpiar" />
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </body>
+<!--Pie de pagina-->
+    <footer>
+        <span id="datosempresa">
+            <span id="nombreempresa">
+                Llegaya SL
+            </span>
+            <span id="direccionempresa">
+                Avda. del ingeniero Juan de la Cierva, 47, Córdoba, Córdoba
+            </span>
+            <span id="telefono">
+                957485631
+            </span>
+            <span id="emailempresa">
+                llegaya@fastdelivery.corp
+            </span>
+        </span>
+        <span id="datosautoria">
+            <span id="autor">
+                Ismael Carrasco Cubero
+            </span>
+            <figure id="licencia">
+                <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Licencia Creative Commons Atribución 4.0 Internacional</a>.
+            </figure>
+        </span>
+    </footer>   
+</html>
+
+<!--CONSIDERO QUE LA PAGINA ES COMPLETAMENTE FUNCIONAL Y CUMPLE LO QUE PIDE EL ENUNCIADO.
+SOY CONSCIENTE DE QUE FLAQUEA BASTANTE EN QUE SEA VISUALMENTE ATRACTIVA, Y ES QUE APARTE DE NO SER DEMASIADO BUENO
+CON NINGUN TIPO DE LENGUAJE, SOY TAMBIEN BASTANTE MALO EN TODO LO QUE RESPECTA A DISEÑO Y ESTETICA.
+PERO AL MENOS FUNCIONA XD, QUE YA ES MUCHO PARA MI.
+SE PERFCTAMENTE QUE NO MERECE UNA NOTAZA, PERO ESPERO QUE AL MENOS ME SIRVA PARA APROBAR LA TAREA.
+SALUDOS Y FELIZ AÑO NUEVO!!!!! -->
