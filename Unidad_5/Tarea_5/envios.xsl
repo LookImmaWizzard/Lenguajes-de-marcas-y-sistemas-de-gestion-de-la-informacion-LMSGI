@@ -31,7 +31,7 @@
         <header>
           <h2>Lenguaje de Marcas y Sistemas de Gestión de Información</h2>
           <h2>Tarea 5: XPath y XSLT</h2>
-          <h2>Autor/a: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</h2>
+          <h2>Autor/a: ISMAEL CARRASCO CUBERO</h2>
         </header>
         <h3>A. Lista ordenada por precio y apellido de los envíos a Sevilla. 
           Indicar el número de orden (con número), el precio, la moneda, el 
@@ -41,6 +41,24 @@
         <br/><br/>
         
         <!-- AÑADIR AQUÍ EL CÓDIGO DEL EJERCICIO -->
+  
+        <xsl:for-each select="//envio[provincia='Sevilla']">
+            <xsl:sort select="precio" order="descending"/>
+            <xsl:sort select="apellido" order="ascending"/>
+            <xsl:value-of select="position()"/>
+            <xsl:text>) </xsl:text>
+            <xsl:value-of select="precio"/>
+            <xsl:text> </xsl:text>
+            <xsl:value-of select="precio/@moneda"/>
+            <xsl:text> - </xsl:text>
+            <xsl:value-of select="apellido"/>
+            <xsl:text>, </xsl:text>
+            <xsl:value-of select="nombre"/>
+            <xsl:text>.</xsl:text>
+            <xsl:text>&#xa;</xsl:text>
+        </xsl:for-each>
+    
+        <!-- FIN DEL EJERCICIO -->
                         
         <h3>B. Número de envíos urgentes a Cádiz y su porcentaje respecto al 
           total de envíos a Cádiz</h3>
@@ -49,6 +67,19 @@
         <br/><br/>
         
         <!-- AÑADIR AQUÍ EL CÓDIGO DEL EJERCICIO -->
+
+        <xsl:variable name="enviosUrgentes" select="count(//envio[provincia='Cádiz' and prioridad='Urgente'])"/>
+        <xsl:variable name="enviosTotales" select="count(//envio[provincia='Cádiz'])"/>
+        <xsl:variable name="porcentaje" select="($enviosUrgentes div $enviosTotales) * 100"/>
+        <xsl:text>Hay </xsl:text>
+        <xsl:value-of select="$enviosUrgentes"/>
+        <xsl:text> envíos urgentes a Cádiz, que suponen el </xsl:text>
+        <xsl:value-of select="format-number($porcentaje, '#.##')"/>
+        <xsl:text>% de los </xsl:text>
+        <xsl:value-of select="$enviosTotales"/>
+        <xsl:text> envíos totales registrados a Cádiz.</xsl:text>  
+
+        <!-- FIN DEL EJERCICIO -->
         
         <h3>C. Lista ordenada (por código de envío) con el tipo de prioridad, 
           la provincia, el nombre y el apellido de todos los envío cuyo nombre 
@@ -59,6 +90,25 @@
         <br/><br/>
         
         <!-- AÑADIR AQUÍ EL CÓDIGO DEL EJERCICIO -->
+
+        <xsl:for-each select="//envio[(starts-with(nombre, 'A') and prioridad='Normal') or (contains(apellido, 'a') and (provincia='Almería' or provincia='Granada'))]">
+            <xsl:sort select="@codigo"/>
+            <xsl:value-of select="position()"/>
+            <xsl:text>.- (</xsl:text>
+            <xsl:value-of select="@codigo"/>
+            <xsl:text> - </xsl:text>
+            <xsl:value-of select="prioridad"/>
+            <xsl:text> - </xsl:text>
+            <xsl:value-of select="provincia"/>
+            <xsl:text>). </xsl:text>
+            <xsl:value-of select="nombre"/>
+            <xsl:text> </xsl:text>
+            <xsl:value-of select="apellido"/>
+            <xsl:text>.</xsl:text>
+            <xsl:text>&#xa;</xsl:text>
+        </xsl:for-each>
+
+        <!-- FIN DEL EJERCICIO -->
                 
         <h3>D. Lista de todas las provincias (ordenadas alfabeticamente) con su 
           número de envíos, ingresos totales (suma de todos sus precios) e 
@@ -68,6 +118,24 @@
         <br/><br/>
          
         <!-- AÑADIR AQUÍ EL CÓDIGO DEL EJERCICIO -->
+
+        <xsl:for-each select="//provincia[not(. = preceding::provincia)]">
+          <xsl:sort select="."/>
+          <xsl:variable name="provincia" select="."/>
+          <xsl:value-of select="$provincia"/>
+          <xsl:text>: </xsl:text>
+          <xsl:variable name="envios" select="count(//envio[provincia=$provincia])"/>
+          <xsl:value-of select="$envios"/>
+          <xsl:text> envíos. Ingresos totales: </xsl:text>
+          <xsl:variable name="ingresosTotales" select="sum(//envio[provincia=$provincia]/precio)"/>
+          <xsl:value-of select="$ingresosTotales"/>
+          <xsl:text> euros. Ingreso medio: </xsl:text>
+          <xsl:value-of select="format-number($ingresosTotales div $envios, '#.##')"/>
+          <xsl:text> euros.</xsl:text>
+          <xsl:text>&#xa;</xsl:text>
+        </xsl:for-each>    
+
+        <!-- FIN DEL EJERCICIO -->
                 
         <h3>E. Crear una tabla, ordenada por fecha de entrega, de los envíos a 
           Almería. La tabla incluirá las columnas: fecha de entrega, provincia, 
@@ -97,10 +165,34 @@
         
         <!-- AÑADIR AQUÍ EL CÓDIGO DEL EJERCICIO -->
                   
+        <table>
+          <tr>
+              <th>Fecha de entrega</th>
+              <th>Provincia</th>
+              <th>Código de envío</th>
+              <th>Prioridad</th>
+          </tr>
+          <xsl:for-each select="//envio[provincia='Almería']">
+              <xsl:sort select="fecha_entrega"/>
+              <tr>
+                  <td><xsl:value-of select="fecha_entrega"/></td>
+                  <td><xsl:value-of select="provincia"/></td>
+                  <td><xsl:value-of select="@codigo"/></td>
+                  <td>
+                      <xsl:attribute name="class">
+                          <xsl:choose>
+                              <xsl:when test="prioridad='Urgente'">urgente</xsl:when>
+                              <xsl:when test="prioridad='Nocturno'">nocturno</xsl:when>
+                          </xsl:choose>
+                      </xsl:attribute>
+                      <xsl:value-of select="prioridad"/>
+                  </td>
+              </tr>
+          </xsl:for-each>
+      </table>
 
 
-
-
+        <!-- FIN DEL EJERCICIO -->
 
 
       </body>
