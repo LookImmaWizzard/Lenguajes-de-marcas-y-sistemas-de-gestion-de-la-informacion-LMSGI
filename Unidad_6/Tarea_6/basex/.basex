@@ -1,0 +1,39 @@
+# General Options
+DEBUG = false
+DBPATH = /home/ismael/Nextcloud/Documentos/1.ASIR_1º_2022_2023/LM/Unidad_6/Tarea_6/basex/data
+LOGPATH = .logs
+REPOPATH = /home/ismael/Nextcloud/Documentos/1.ASIR_1º_2022_2023/LM/Unidad_6/Tarea_6/basex/repo
+LANG = English
+FAIRLOCK = false
+CACHETIMEOUT = 3600
+
+# Client/Server Architecture
+HOST = localhost
+PORT = 1984
+SERVERPORT = 1984
+USER = 
+PASSWORD = 
+SERVERHOST = 
+PROXYHOST = 
+PROXYPORT = 0
+NONPROXYHOSTS = 
+IGNORECERT = false
+TIMEOUT = 30
+KEEPALIVE = 600
+PARALLEL = 8
+LOG = true
+LOGMSGMAXLEN = 1000
+LOGTRACE = true
+
+# HTTP Services
+WEBPATH = /home/ismael/Nextcloud/Documentos/1.ASIR_1º_2022_2023/LM/Unidad_6/Tarea_6/basex/webapp
+GZIP = false
+RESTPATH = 
+RESTXQPATH = 
+PARSERESTXQ = 3
+RESTXQERRORS = true
+HTTPLOCAL = false
+STOPPORT = 8081
+AUTHMETHOD = Basic
+
+# Local Options

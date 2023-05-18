@@ -27,6 +27,10 @@
           }
         </style>
       </head>
+
+      <!-- HE DECICIDO DEJAR LOS COMENTARIOS DE AÑADIR EL CODIGO, Y FINALIZAR EL MISMO CON UN COMENTARIO FIN DE CODIGO PARA QUE SE VEA MAS CLARO DONDE EMPIEZA Y DONDE ACABA -->
+
+
       <body>
         <header>
           <h2>Lenguaje de Marcas y Sistemas de Gestión de Información</h2>
